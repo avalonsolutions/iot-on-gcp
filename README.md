@@ -6,7 +6,9 @@ cloud logos: iot core
 
 # architecture
 
-IMAGE
+[Interactive](https://arcentry.com/app/embed.html?id=d16af169-924f-4cc6-8e05-d47ff49298b9&key=762f473ebf01b9181b61ff4dd041132d&live=true&camera=0_13.3518_8.08_-0.7854_0.6155_0.5236_343.8186_450_370.2461&hideViewControls=0)
+
+![alt text](assets/architecture.png "Architecture diagram")
 
 # spin up
 
