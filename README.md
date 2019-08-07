@@ -35,3 +35,4 @@ to run in background append `> foo.log &`
 
 NB: for commands, values etc. see terraform script
 
+test
