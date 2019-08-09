@@ -114,3 +114,4 @@ simulator generates temperature data
 `terraform destroy`
 ```
 - stop dataflow job
+- delete iot core registry
