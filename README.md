@@ -92,6 +92,7 @@ chmod +x init.sh
 chmod +x run.sh
 ./run.sh {device name} {number of signals}
 ```
+NB: append `> foo.log &` to run multiple simulators on same vm in backround
 
 # infrastructure walkthrough
 simulator emits temperature reading at the rate 10 per second
@@ -104,14 +105,14 @@ dataflow ingests data from pubsub topic and sinks it to warehouse
 ![](assets/df.png)
 data is stored in bigquery
 ![](assets/bq.png)
-simulator generates temperature data
+data studio report fed from bigquery
 ![](assets/ds.png)
 
 # tear down
 
 - destroy cloud infra
 ```bash
-`terraform destroy`
+terraform destroy
 ```
 - stop dataflow job
 - delete iot core registry
