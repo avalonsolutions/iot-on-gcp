@@ -95,17 +95,17 @@ chmod +x run.sh
 NB: append `> foo.log &` to run multiple simulators on same vm in backround
 
 # infrastructure walkthrough
-simulator emits temperature reading at the rate 10 per second
+##### simulator emits temperature reading at the rate 10 per second
 ![](assets/vm.png)
-iot core receives data and publishes it to pubsub
+##### iot core receives data and publishes it to pubsub
 ![](assets/iot.png)
-pubsub topic
+##### pubsub topic
 ![](assets/ps.png)
-dataflow ingests data from pubsub topic and sinks it to warehouse
+##### dataflow ingests data from pubsub topic and sinks it to warehouse
 ![](assets/df.png)
-data is stored in bigquery
+##### data is stored in bigquery
 ![](assets/bq.png)
-data studio report fed from bigquery
+##### data studio report fed from bigquery
 ![](assets/ds.png)
 
 # tear down
