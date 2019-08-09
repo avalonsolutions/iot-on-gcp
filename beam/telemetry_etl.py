@@ -19,6 +19,19 @@ import calendar
 import strict_rfc3339
 
 
+# TODO
+'''
+telemetry_etl.py", line 28, in process
+null_resource.beam-staging (local-exec):   File "/usr/local/lib/python2.7/dist-packages/strict_rfc3339.py", line 83, in rfc3339_to_timestamp
+null_resource.beam-staging (local-exec):     if not validate_rfc3339(datestring):
+null_resource.beam-staging (local-exec):   File "/usr/local/lib/python2.7/dist-packages/strict_rfc3339.py", line 42, in validate_rfc3339
+null_resource.beam-staging (local-exec):     m = rfc3339_regex.match(datestring)
+null_resource.beam-staging (local-exec): TypeError: expected string or buffer [while running 'generatedPtransform-1953']
+'''
+# TODO
+# BQ schema change from timestamp to int
+
+
 # Set event timestamp from json body
 class AddTimestampToDict(beam.DoFn):
     def process(self, element):

@@ -188,8 +188,8 @@ def main():
         # delivery.
         client.publish(mqtt_topic, jsonpayload, qos=1)
 
-        # Sends 2 events per second and 1 state per 5 second
-        time.sleep(0.5 if args.message_type == 'event' else 5)
+        # Sends 10 events per second and 1 state per 5 second
+        time.sleep(0.1 if args.message_type == 'event' else 5)
 
     # End the network loop and finish.
     client.loop_stop()
