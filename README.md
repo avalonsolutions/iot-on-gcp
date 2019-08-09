@@ -7,36 +7,36 @@ IoT telemetry streaming ingest, warehouse & reporting on GCP.
 ![alt text](assets/architecture.png "Architecture diagram")
 
 # pre-requisites
-- cloud sdk
-`brew cask install google-cloud-sdk`
-`gcloud init`
-`gcloud components update`
+- cloud sdk  
+`brew cask install google-cloud-sdk` \
+`gcloud init` \
+`gcloud components update` \
 `gcloud auth application-default login`
-- terraform
+- terraform  
 `brew install terraform`
 - ssh key paired with your gitlab account
-- codebase
-`git clone git@gitlab.com:vgoslo/iot-on-gcp`
+- codebase  
+`git clone git@gitlab.com:vgoslo/iot-on-gcp` \
 `cd iot-on-gcp`
-- beam sdk
-`cd beam`
-`virtualenv env`
-`source env/bin/activate`
+- beam sdk  
+`cd beam` \
+`virtualenv env` \
+`source env/bin/activate` \
 `pip install 'apache-beam[gcp]'`
 
 # spin up
 
-1. create sa key `sa.json` and place it in root folder.
+1. create sa key `sa.json` and place it in root folder.  
 `export GOOGLE_APPLICATION_CREDENTIALS=sa.json`
 
-2. initialize terraform
-`cd ..`
+2. initialize terraform  
+`cd ..` \
 `terraform init`
 
-3. verify you are all set
+3. verify you are all set  
 `terraform plan`
 
-4. create cloud infra
+4. create cloud infra  
 `terraform apply`
 
 # infrastructure walkthrough
