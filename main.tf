@@ -118,7 +118,7 @@ resource "google_bigquery_table" "default" {
   [
       {
           "name": "timestamp",
-          "type": "TIMESTAMP",
+          "type": "INTEGER",
           "mode": "REQUIRED"
       },
       {
