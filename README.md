@@ -87,16 +87,23 @@ export REGION="us-central1"
 chmod +x init.sh
 ./init.sh
 ```
-- run simulator
+- run simulations
+to deploy IoT fleet with 20 devices posting 10,000 signals each in background
 ```bash
-chmod +x run.sh
-./run.sh {device name} {number of signals}
+chmod +x run_fleet.sh
+./run_fleet.sh
 ```
-NB: append `> foo.log &` to run multiple simulators on same vm in backround
+to deploy single device posting signals in foreground
+```bash
+chmod +x run_one.sh
+./run_one.sh {device name} {number of signals}
+```
 
 # infrastructure walkthrough
+##### fleet of 20 device simulators
+![](assets/vm1.png)
 ##### simulator emits temperature reading at the rate 10 per second
-![](assets/vm.png)
+![](assets/vm2.png)
 ##### iot core receives data and publishes it to pubsub
 ![](assets/iot.png)
 ##### pubsub topic
