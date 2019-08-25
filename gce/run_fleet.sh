@@ -5,7 +5,7 @@ echo 'deploying fleet with 20 devices and 10,000 signals each'
 SIGNALS=10000
 for i in {1..20}
 do
-  ID="device-{$i}-{$(date +%s000)}"
+  ID="device-$i-$(date +%s000)"
   echo 'creating device:' $ID
   gcloud beta iot devices create $ID \
     --project=$PROJECT_ID \
