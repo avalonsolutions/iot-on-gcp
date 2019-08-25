@@ -115,6 +115,97 @@ chmod +x run_one.sh
 ##### data studio report fed from bigquery
 ![](assets/ds.png)
 
+# analyzing with BigQuery ML
+models supported:
+linear regression: numeric values, i.e. value of smth
+logistic regression: binary or multiclass classification, i.e. is smth
+k-means clustering: unsupervised learning exploration
+
+objective: predict temperature
+
+##### train linear regression model
+```sql
+CREATE OR REPLACE MODEL `iot.predict_temperature_v0`
+OPTIONS(model_type='linear_reg') AS
+SELECT
+ humidity,
+ device,
+ temperature as label
+FROM
+  `iot.telemetry`
+```
+![](assets/train.png)
+![](assets/train2.png)
+
+##### evaluate
+```sql
+WITH eval_table AS (
+SELECT
+ humidity,
+ device,
+ temperature as label
+FROM
+  iot.telemetry
+)
+SELECT
+  *
+FROM
+  ML.EVALUATE(MODEL iot.predict_temperature_v0,
+    TABLE eval_table)
+```
+![](assets/evaluate.png)
+
+##### feature engineering: add temperature
+```sql
+CREATE OR REPLACE MODEL `iot.predict_temperature_v1`
+OPTIONS(model_type='linear_reg') AS
+SELECT
+ timestamp,
+ humidity,
+ device,
+ temperature as label
+FROM
+  `iot.telemetry`
+```
+
+```sql
+WITH eval_table AS (
+SELECT
+ timestamp,
+ humidity,
+ device,
+ temperature as label
+FROM
+  iot.telemetry
+)
+SELECT
+  *
+FROM
+  ML.EVALUATE(MODEL iot.predict_temperature_v1,
+    TABLE eval_table)
+```
+![](assets/evaluate2.png)
+
+r2 increases, err decreases
+
+##### predict
+i.e. device 19. ended with t 60 and hum 17. if we bump down hum t will be even higher
+
+```sql
+WITH pred_table AS (
+SELECT
+  'fleet-device-19-1566737352000' as device,
+  11.0 as humidity,
+  1566737789 as timestamp
+)
+SELECT
+  *
+FROM
+  ML.PREDICT(MODEL `iot.predict_temperature_v1`,
+    TABLE pred_table)
+```
+![](assets/predict.png)
+
 # tear down
 
 - destroy cloud infra
