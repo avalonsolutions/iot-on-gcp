@@ -130,6 +130,11 @@ resource "google_bigquery_table" "default" {
           "name": "temperature",
           "type": "FLOAT",
           "mode": "REQUIRED"
+      },
+      {
+          "name": "humidity",
+          "type": "FLOAT",
+          "mode": "REQUIRED"
       }
   ]
   EOF
