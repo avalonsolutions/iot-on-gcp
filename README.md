@@ -117,9 +117,9 @@ chmod +x run_one.sh
 
 # analyzing with BigQuery ML
 models supported:
-linear regression: numeric values, i.e. value of smth
-logistic regression: binary or multiclass classification, i.e. is smth
-k-means clustering: unsupervised learning exploration
+*  linear regression: numeric values, i.e. value of smth
+*  logistic regression: binary or multiclass classification, i.e. is smth
+*  k-means clustering: unsupervised learning exploration
 
 objective: predict temperature
 
