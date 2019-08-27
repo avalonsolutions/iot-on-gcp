@@ -102,7 +102,7 @@ chmod +x run_one.sh
 # infrastructure walkthrough
 ##### fleet of 20 device simulators
 ![](assets/vm1.png)
-##### simulator emits temperature reading at the rate 10 per second
+##### simulator emits temperature & humidity readings at the rate 10 per second
 ![](assets/vm2.png)
 ##### iot core receives data and publishes it to pubsub
 ![](assets/iot.png)
